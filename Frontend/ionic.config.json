@@ -1,0 +1,7 @@
+{
+  "name": "GestaoAtivos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

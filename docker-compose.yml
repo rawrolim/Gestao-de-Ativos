@@ -1,0 +1,36 @@
+version: "3"
+
+services: 
+  db: 
+    image: mysql
+    container_name: db-gestao-ativos
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gestao_ativos
+    volumes:
+      - ./db/data:/var/lib/mysql
+    restart: always
+
+  backend:
+    build: "./Backend"
+    container_name: beckend-gestao-ativos
+    restart: always
+    volumes:
+      - ./Backend:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  frontend:
+    build: "./Frontend"
+    container_name: frontend-gestao-ativos
+    restart: always
+    volumes:
+      - ./Frontend:/app
+    ports: 
+      - "8100:8100"
+    depends_on:
+      - db
+      - backend
