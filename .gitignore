@@ -1,6 +1,4 @@
 Backend/node_modules
-Backend/package.json
-Backend/package-lock.json
 Frontend/node_modules
 Frontend/pnp
 Frontend/pnp.js
