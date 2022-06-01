@@ -1,3 +1,6 @@
+const { Sequelize } = require('sequelize');
+const Usuario = require('../Models/Usuario');
+
 exports.post = (req, res, next) => {
     res.status(201).send('Requisição recebida com sucesso!');
 };
@@ -10,6 +13,7 @@ exports.delete = (req, res, next) => {
     res.status(200).send(`Requisição recebida com sucesso! ${id}`);
 };
 exports.get = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Requisição recebida com sucesso! ${id}`);
+    Usuario.findAll({raw: true}).then(r => {
+        res.status(200).send(JSON.stringify(r));
+    });
 };
