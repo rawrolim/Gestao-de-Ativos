@@ -8,6 +8,7 @@ exports.post = (req, res) => {
     usuario.status=true;
     usuario.GetUsuarioEmail().then(u=>{
         if(!usuario.VerificaErroCreate().erro[0]){
+            usuario.senha = md5(usuario.senha);
             Usuario.create(usuario).then(r=>{
                 res.send(r);
             });
