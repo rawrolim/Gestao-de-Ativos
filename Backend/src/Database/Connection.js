@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 
 const conn = new Sequelize('gestao_ativos','root','root',{
-    host: 'db-gestao-ativos',
+    host: 'localhost',
     dialect: 'mysql'
 });
 

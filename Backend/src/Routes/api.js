@@ -1,5 +1,10 @@
 const express = require("express");
 const UsuarioController = require('../Controller/UsuarioController');
+const TipoAtivoController = require('../Controller/TipoAtivoController');
+const LocalController = require('../Controller/LocalController');
+const MarcaController = require('../Controller/MarcaController');
+const StatusController = require('../Controller/StatusController');
+const AtivoController = require('../Controller/AtivoController');
 const api = express.Router();
 
 api.get("/", function(req,res,next){
@@ -9,5 +14,8 @@ api.get("/", function(req,res,next){
 });
 
 api.get("/usuario", UsuarioController.get);
+api.get("/usuario/:id", UsuarioController.get);
+api.delete("/usuario/:id", UsuarioController.delete);
+api.post("/usuario", UsuarioController.post);
 
 module.exports = api;
