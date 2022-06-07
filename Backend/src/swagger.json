@@ -1,0 +1,54 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API de gestão de ativos",
+        "description": "Essa API têm como objetivo a gestão dos ativos.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api",
+            "description": "API de teste"
+        }
+    ],
+    "paths": {
+        "/usuario":{
+            "post":{
+                "summary": "Cadastro de usuário",
+                "description": "Rota responsável por cadastrar um novo usuário",
+                "tags": ["Usuario"],
+                "requestBody":{
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Usuario"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    "components": {
+        "schemas":{
+            "Usuario":{
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "senha":{
+                        "type": "string"
+                    },
+                    "senha_repetida":{
+                        "type": "string"
+                    },
+                    "email":{
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
