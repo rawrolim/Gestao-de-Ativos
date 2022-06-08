@@ -68,6 +68,19 @@ class UsuarioModel{
             }
         });
     }
+
+    async GetUsuarioId(id){
+        await Usuario.findOne({where:{id:id}}).then(u => {
+            this.id = u.id;
+            this.nome = u.nome;
+            this.email = u.email;
+            this.senha = u.senha;
+            this.senha_repetida = u.senha;
+            this.status = u.status;
+            this.updatedAt = u.updatedAt;
+            this.createdAt = u.createdAt;
+        });
+    }
 }
 
 module.exports = UsuarioModel;

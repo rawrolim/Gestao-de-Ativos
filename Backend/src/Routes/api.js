@@ -17,5 +17,6 @@ api.get("/usuario", UsuarioController.get);
 api.get("/usuario/:id", UsuarioController.get);
 api.delete("/usuario/:id", UsuarioController.delete);
 api.post("/usuario", UsuarioController.post);
+api.put("/usuario/:id", UsuarioController.put);
 
 module.exports = api;

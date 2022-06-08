@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 const Usuario = require('../Database/Usuario');
 const UsuarioModel = require("../Models/UsuarioModel");
-var md5 = require('md5');
+const md5 = require('md5');
 
 exports.post = (req, res) => {
     let usuario = new UsuarioModel(req.body);
@@ -13,14 +13,21 @@ exports.post = (req, res) => {
                 res.send(r);
             });
         }else{
-            res.send(usuario.VerificaErroCreate());
+            res.status(200).send(usuario.VerificaErroCreate());
         }
     })
 };
 exports.put = (req, res, next) => {
     let id = req.params.id;
-
-    res.status(201).send(`Requisição recebida com sucesso! ${id}`);
+    let usuario = new UsuarioModel(id);
+    Usuario.update(req.body,{
+        where: {
+            id: id
+        }
+    })
+    .then(r => {
+        res.status(200).send(JSON.stringify());
+    })
 };
 exports.delete = (req, res, next) => {
     let id = req.params.id;
@@ -28,8 +35,10 @@ exports.delete = (req, res, next) => {
         where: {
             id: id
         }
-    });
-    res.status(200).send({error: 0});
+    })
+    .then(r => {
+        res.status(200).send({error: 0});
+    })
 };
 exports.get = (req, res, next) => {
     if(req.params.id){
