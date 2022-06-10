@@ -1,4 +1,3 @@
-const { Sequelize } = require('sequelize');
 const Status = require('../Database/Status');
 
 exports.post = (req, res, next) => {
@@ -13,7 +12,13 @@ exports.delete = (req, res, next) => {
     res.status(200).send(`Requisição recebida com sucesso! ${id}`);
 };
 exports.get = (req, res, next) => {
-    Status.findAll({raw: true}).then(r => {
-        res.status(200).send(JSON.stringify(r));
-    });
+    if(req.params.id){
+        Status.findAll({where:{id:req.params.id}}).then(r => {
+            res.status(200).send(JSON.stringify(r));
+        });
+    }else{
+        Status.findAll().then(r => {
+            res.status(200).send(JSON.stringify(r));
+        });
+    }
 };

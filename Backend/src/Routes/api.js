@@ -19,4 +19,10 @@ api.delete("/usuario/:id", UsuarioController.delete);
 api.post("/usuario", UsuarioController.post);
 api.put("/usuario/:id", UsuarioController.put);
 
+api.get("/status", StatusController.get);
+api.get("/status/:id", StatusController.get);
+api.put("/status/:id", StatusController.get);
+api.delete("/status/:id", StatusController.get);
+api.post("/status", StatusController.get);
+
 module.exports = api;

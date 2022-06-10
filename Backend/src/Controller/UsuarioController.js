@@ -1,4 +1,3 @@
-const { Sequelize } = require('sequelize');
 const Usuario = require('../Database/Usuario');
 const UsuarioModel = require("../Models/UsuarioModel");
 const md5 = require('md5');

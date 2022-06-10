@@ -1,4 +1,3 @@
-const { Sequelize } = require('sequelize');
 const Marca = require('../Database/Marca');
 
 exports.post = (req, res, next) => {

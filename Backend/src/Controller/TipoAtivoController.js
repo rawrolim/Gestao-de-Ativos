@@ -1,4 +1,3 @@
-const { Sequelize } = require('sequelize');
 const TipoAtivo = require('../Database/TipoAtivo');
 
 exports.post = (req, res, next) => {

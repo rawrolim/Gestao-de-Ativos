@@ -1,4 +1,3 @@
-const { Sequelize } = require('sequelize');
 const Local = require('../Database/Local');
 
 exports.post = (req, res, next) => {
