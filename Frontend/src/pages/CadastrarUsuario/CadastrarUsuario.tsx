@@ -1,6 +1,6 @@
 import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonItem, IonLabel, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { useHistory } from 'react-router';
-import './Cadastrar.css';
+import './CadastrarUsuario.css';
 
 const Cadastrar: React.FC = () => {
   const history = useHistory();
