@@ -1,7 +1,8 @@
 FROM node:14-alpine
 
-RUN npm install -g @ionic/cli
-RUN npm install
+RUN npm i -g @ionic/cli
+RUN npm i react-scripts 
+RUN npm i
 
 WORKDIR /app
 COPY . /app

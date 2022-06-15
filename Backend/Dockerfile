@@ -11,4 +11,4 @@ WORKDIR /app
 COPY . ./app
 
 EXPOSE 3000
-CMD ["nodemon"]
+CMD ["npm","start"]

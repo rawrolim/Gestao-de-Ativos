@@ -15,6 +15,7 @@ services:
   backend:
     build: "./Backend"
     container_name: beckend-gestao-ativos
+    command: npm start
     restart: always
     volumes:
       - ./Backend:/app
@@ -26,11 +27,11 @@ services:
   frontend:
     build: "./Frontend"
     container_name: frontend-gestao-ativos
+    command: ionic serve
     restart: always
     volumes:
       - ./Frontend:/app
     ports: 
       - "8100:8100"
     depends_on:
-      - db
       - backend
